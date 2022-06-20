@@ -4,17 +4,18 @@ const form = document.getElementById('form')
 const ulElement = document.getElementById('items')
 const inputElement = document.getElementById('inputText')
 
-form.addEventListener('submit', addItem);
+form.addEventListener('submit', addItemByEvent);
 let itemCount=0
 
 
-
-
-function addItem(evento)
+function addItemByEvent(evento)
 {
     evento.preventDefault()
-    const newItem = evento.target[0].value
-    
+    addItem(evento.target[0].value)
+}
+
+function addItem(newItem)
+{
     let newElement = document.createElement('li')
     newElement.classList.add('item')
     newElement.id = 'item' + itemCount
@@ -32,7 +33,7 @@ function addItem(evento)
     removeButtonElement.addEventListener('click', removeButton)
     newElement.insertAdjacentElement("beforeend", removeButtonElement)
 
-    inputElement.textContent=''
+    inputElement.value=''
     itemCount++
 }
 
