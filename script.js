@@ -42,7 +42,7 @@ function removeButton(evento)
     evento.target.parentElement.remove();
 }
 
-fillDummy()
+// fillDummy()
 
 function fillDummy()
 {
@@ -50,3 +50,18 @@ function fillDummy()
         addItem('Teste '+index)
     }
 }
+
+async function getTodos()
+{
+    const init = {
+        mode: 'no-cors'
+    }
+    const result = await fetch('http://localhost:3000/todo')
+    const payload = await result.json()
+
+    for (let index = 0; index < payload.length; index++) {
+        addItem(payload[index])
+    }
+}
+
+getTodos()
