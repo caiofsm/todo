@@ -41,3 +41,12 @@ function removeButton(evento)
 {
     evento.target.parentElement.remove();
 }
+
+fillDummy()
+
+function fillDummy()
+{
+    for (let index = 10; index > 0; index--) {
+        addItem('Teste '+index)
+    }
+}
